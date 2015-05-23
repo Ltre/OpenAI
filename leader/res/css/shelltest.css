@@ -1,0 +1,29 @@
+
+#area{
+	clear:both;
+	width:960px;
+	/* height:640px; */
+	border:#666 groove 5px;
+	margin:0 auto;
+	text-align: left;
+}
+
+#shell,#afprm{
+	float:left;
+	width:20%;
+	/*margin:50px 50px;*/
+}
+
+#shell{
+	margin-left:20%;
+}
+
+#afprm{
+	margin-left:20%;
+}
+
+.inputs{
+	width:50%;
+	margin:0 auto;
+}
+	

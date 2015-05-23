@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 该形式的SQL集合查询暂未实现 -->
+
+<sql>
+
+	<!-- 查询预约转让记录 -->
+	<query id="getBookSell">
+		<sentence>
+			select 
+				b.id		as	id,
+				s.title		as	title,
+				leftuser.username	as	leftuser,
+				rightuser.username	as	rightuser,
+				b.meettime	as meettime,
+				b.meetplace	as meetplace,
+				b.purpose	as purpost,
+				b.booktime	as	booktime,
+				b.status	as	status
+			from 
+				fm_book		as	b,
+				fm_sell		as	s,
+				fm_users	as	leftuser,
+				fm_users	as	rightuser
+			where
+				b.recordz = s.id
+				and b.leftuser = leftuser.id
+				and b.rightuser = rightuser.id
+				and (
+					b.leftuser = :leftuser
+					or b.rightuser = :rightuser
+				)
+		</sentence>
+		<params>
+			<parma name="leftuser" value="%" />
+			<parma name="rightuser" value="%" />
+		</params>
+	</query>
+	
+	<!-- 插入语句 -->
+	<insert>
+		<sentence>
+		</sentence>
+		<params>
+		</params>
+	</insert>
+	
+	<!-- 更新语句 -->
+	<update>
+		<sentence>
+		</sentence>
+		<params>
+		</params>
+	</update>
+	
+	<!-- 删除语句 -->
+	<delete>
+		<sentence>
+		</sentence>
+		<params>
+		</params>
+	</delete>
+</sql>

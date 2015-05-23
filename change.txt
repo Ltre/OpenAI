@@ -1,0 +1,37 @@
+﻿版本号：OpenAI[1.0.1]
+内部版本号ActionInvoker[1.9.8.1]
+更新内容如下：
+
+	2014-05-18
+	
+		1、公共目录的默认名称由public更改为leader，如需自定义，见根目录index.php配置。
+		
+		2、成员目录的默认名称由memberX更改为hypotaxis，如需自定义，见hypotaxis/index.php配置。
+		
+		3、精简成员目录中base库的文件，将以leader目录的base库为准。
+
+	2014-6-25
+		
+		1、/index.php、/hypotaxis/index.php添加以下代码：
+			//开启输出缓冲（租用的服务器需要）
+			ob_start();
+		
+		2、修复了hypotaxis从属目录中目录包含错误的问题.
+			/hypotaxis/IncludePublic.entity.php
+			/hypotaxis/lib/ext/ftp/IncludePublicExtLibs.php
+			/hypotaxis/lib/ext/mysql/IncludePublicExtLibs.php
+			/hypotaxis/lib/ext/sql/IncludePublicExtLibs.php
+			/hypotaxis/lib/ext/util/IncludePublicExtLibs.php
+			在这些文件中，修改示例如下：
+				原代码：
+				AiCore::parseXxxFormatFromDirAndAutoIncludeTheir( PUBLIC_DIR_NAME.'/'.USER_LIB_DIRS.'sql/', 'class');
+				纠正：
+				AiCore::parseXxxFormatFromDirAndAutoIncludeTheir( PUBLIC_DIR_NAME.'/core/'.USER_LIB_DIRS.'sql/', 'class');
+			说明：添加了“core/”字符串。
+			
+	2014-7-31
+	
+		1、/leader/lib/ext/util/OrekiUtil.class.php
+			添加getconst()和findConstantsFromObject()，
+			从此支持直接取出一般常量和类常量。
+		
